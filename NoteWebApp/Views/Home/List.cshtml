@@ -1,0 +1,15 @@
+﻿@using NoteWebApp.Models;
+@{
+    ViewBag.Title = "List";
+
+    List<Note> noteList = ViewBag.noteList;
+}
+
+<h2>Note List</h2>
+
+<ul>
+    @foreach (var item in noteList)
+    {
+        <li>@item.Title @Html.ActionLink("detail", "detail", new { id = item.NoteId })</li>        
+    }
+</ul>

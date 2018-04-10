@@ -4,25 +4,36 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+using NoteWebApp.Models;
+
 namespace NoteWebApp.Controllers
 {
 	public class HomeController : Controller
 	{
 		public ActionResult Index()
 		{
+			return RedirectToAction("List");
+		}
+
+		public ActionResult List()
+		{
+			List<Note> noteList = NoteManager.GetNoteList();
+
+			ViewBag.noteList = noteList;
+
 			return View();
 		}
 
-		public ActionResult About()
+		public ActionResult Detail(int id)
 		{
-			ViewBag.Message = "Your application description page.";
+			Note note = NoteManager.GetNoteById(id);
 
-			return View();
-		}
+			if (note == null)
+			{
+				return View("Error");
+			}
 
-		public ActionResult Contact()
-		{
-			ViewBag.Message = "Your contact page.";
+			ViewBag.note = note;
 
 			return View();
 		}
