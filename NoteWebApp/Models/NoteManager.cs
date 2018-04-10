@@ -18,7 +18,7 @@ namespace NoteWebApp.Models
 			{
 				conn.Open();
 
-				String sql = "select * from Note";
+				String sql = "select * from Note order by createddate desc";
 
 				OracleCommand cmd = new OracleCommand
 				{
@@ -42,6 +42,91 @@ namespace NoteWebApp.Models
 			}
 
 			return noteList;
+		}
+
+		internal static void UpdateNote(int noteId, string title, string contents)
+		{
+			using (OracleConnection conn = new OracleConnection(_connectionString))
+			{
+				conn.Open();
+
+				String sql = $"update NOTE set title = '{title}', contents = '{contents}' where noteid = {noteId}";
+
+				OracleCommand cmd = new OracleCommand
+				{
+					Connection = conn,
+					CommandText = sql
+				};
+
+				cmd.ExecuteNonQuery();
+			}
+		}
+
+		internal static void DeleteNote(string noteId)
+		{
+			using (OracleConnection conn = new OracleConnection(_connectionString))
+			{
+				conn.Open();
+
+				String sql = $"delete from note where noteid = {noteId}";
+
+				OracleCommand cmd = new OracleCommand
+				{
+					Connection = conn,
+					CommandText = sql
+				};
+
+				cmd.ExecuteNonQuery();
+			}
+		}
+
+		internal static int CreateNote(string title, string contents)
+		{
+			// 새 note id 구하기
+			int newNoteId = FindNewNoteId();
+
+			using (OracleConnection conn = new OracleConnection(_connectionString))
+			{
+				conn.Open();
+				
+				String sql = $"insert into note (noteid, title, contents, createddate) values ({newNoteId}, '{title}', '{contents}.', sysdate )";
+
+				OracleCommand cmd = new OracleCommand
+				{
+					Connection = conn,
+					CommandText = sql
+				};
+
+				cmd.ExecuteNonQuery();
+			}
+
+			return newNoteId;
+		}
+
+		private static int FindNewNoteId()
+		{
+			int newNoteId;
+
+			using (OracleConnection conn = new OracleConnection(_connectionString))
+			{
+				conn.Open();
+
+				String sql = "select note_seq.nextval from dual";
+
+				OracleCommand cmd = new OracleCommand
+				{
+					Connection = conn,
+					CommandText = sql
+				};
+
+				OracleDataReader reader = cmd.ExecuteReader();
+				reader.Read();
+				newNoteId = int.Parse(reader[0].ToString());
+
+				reader.Close();
+			}
+
+			return newNoteId;
 		}
 
 		internal static Note GetNoteById(int id)

@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "New";
+}
+
+<h2>New</h2>
+
+@using (Html.BeginForm("insert", "Home"))
+{
+    <div>
+        Title: <br />
+        @Html.TextBox("title", "")
+    </div>
+    <div>
+        Contents: <br />
+        @Html.TextArea("contents")
+    </div>
+    <input type="submit" value="생성" />
+}
+
+@Html.ActionLink("List", "List")

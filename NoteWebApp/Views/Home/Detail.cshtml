@@ -7,14 +7,24 @@
 
 <h2>Detail</h2>
 
-<p>Note id: @note.NoteId</p>
-<div>
-    Title: <br />
-    <input type="text" value="@note.Title" />
-</div>
-<div>
-    Contents: <br />
-    <textarea>@note.Contents</textarea>
-</div>
+@using (Html.BeginForm("update", "Home"))
+{
+    <div>
+        Title: <br />
+        @Html.TextBox("title", note.Title)
+    </div>
+    <div>
+        Contents: <br />
+        @Html.TextArea("contents", note.Contents)
+    </div>
+    @Html.Hidden("noteid", note.NoteId)
+    <input type="submit" value="저장" />
+}
+
+@using (Html.BeginForm("delete", "Home"))
+{
+    @Html.Hidden("noteid", note.NoteId)
+    <input type="submit" value="삭제" />
+}
 
 @Html.ActionLink("List", "List")

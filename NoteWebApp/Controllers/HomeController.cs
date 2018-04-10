@@ -37,5 +37,33 @@ namespace NoteWebApp.Controllers
 
 			return View();
 		}
+
+		[HttpPost]
+		public ActionResult Update(int noteId, string title, string contents)
+		{
+			NoteManager.UpdateNote(noteId, title, contents);
+
+			return RedirectToAction("Detail", new { id = noteId });
+		}
+
+		public ActionResult New()
+		{
+			return View();
+		}
+
+		public ActionResult Insert(string title, string contents)
+		{
+			int noteId = NoteManager.CreateNote(title, contents);
+
+			return RedirectToAction("Detail", new { id = noteId });
+		}
+
+		[HttpPost]
+		public ActionResult Delete(string noteId)
+		{
+			NoteManager.DeleteNote(noteId);
+
+			return RedirectToAction("List");
+		}
 	}
 }
