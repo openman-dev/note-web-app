@@ -1,0 +1,30 @@
+﻿@using NoteWebApp.Models;
+@{
+    ViewBag.Title = "Detail";
+
+    Note note = ViewBag.note;
+}
+
+<h2>Detail</h2>
+
+@using (Html.BeginForm("update", "Home"))
+{
+    <div>
+        Title: <br />
+        @Html.TextBox("title", note.Title)
+    </div>
+    <div>
+        Contents: <br />
+        @Html.TextArea("contents", note.Contents)
+    </div>
+    @Html.Hidden("noteid", note.NoteId)
+    <input type="submit" value="저장" />
+}
+
+@using (Html.BeginForm("delete", "Home"))
+{
+    @Html.Hidden("noteid", note.NoteId)
+    <input type="submit" value="삭제" />
+}
+
+@Html.ActionLink("List", "List")

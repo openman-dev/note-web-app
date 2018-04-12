@@ -1,0 +1,104 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="629A921C-D4AD-BA7B-C493-631F7B791843" name="Employee">
+<createdBy>user</createdBy>
+<createdTime>2018-04-08 01:20:06 UTC</createdTime>
+<ownerDesignName>first_erd</ownerDesignName>
+<ordsAlias>table_1</ordsAlias>
+<abbreviation>EMP</abbreviation>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="EmployeeID" id="E9D6845C-51B5-5796-19B3-7CC8F5F4243B">
+<createdBy>user</createdBy>
+<createdTime>2018-04-08 01:23:25 UTC</createdTime>
+<ownerDesignName>first_erd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Column_2" id="D3034BC0-7D63-C1A9-0CF9-E10D4101D73D">
+<createdBy>user</createdBy>
+<createdTime>2018-04-08 01:26:05 UTC</createdTime>
+<ownerDesignName>first_erd</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Column_3" id="E788A2B1-3C36-5AB8-0BE8-0FE36D2C1B9E">
+<createdBy>user</createdBy>
+<createdTime>2018-04-08 01:26:05 UTC</createdTime>
+<ownerDesignName>first_erd</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Column_4" id="5376DE26-50CF-AD52-6058-6602FEF59F8F">
+<createdBy>user</createdBy>
+<createdTime>2018-04-08 01:26:05 UTC</createdTime>
+<ownerDesignName>first_erd</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Column_5" id="90E63235-8FF9-CADC-D2FF-462861170A7C">
+<createdBy>user</createdBy>
+<createdTime>2018-04-08 01:26:05 UTC</createdTime>
+<ownerDesignName>first_erd</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Department_DepartmentID" id="C826F911-C674-609C-5000-D3EE0AE98778">
+<createdBy>user</createdBy>
+<createdTime>2018-04-08 01:28:02 UTC</createdTime>
+<ownerDesignName>first_erd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E4861653-2169-AAA3-EA12-FF86EC55A258" referredColumn="D87186E5-811C-D323-F918-110C22968223"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="ACDE1D32-2068-9466-7BD6-FA8FC1A86A0D" name="Employee_PK">
+<createdBy>user</createdBy>
+<createdTime>2018-04-08 01:23:25 UTC</createdTime>
+<ownerDesignName>first_erd</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E9D6845C-51B5-5796-19B3-7CC8F5F4243B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="73847D30-01D0-13FB-51E4-4959087D3B5A" name="Employee_Department_FK">
+<createdBy>user</createdBy>
+<createdTime>2018-04-08 01:28:02 UTC</createdTime>
+<ownerDesignName>first_erd</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C826F911-C674-609C-5000-D3EE0AE98778"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
